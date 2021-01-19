@@ -58,8 +58,6 @@ void deleteDoubles(int array[],int *size,int newArray[]){
     *size = index ;
 }
 
-
-
 //element le plus grand
 int max(int ar[],int size){
     int max = ar[0];
