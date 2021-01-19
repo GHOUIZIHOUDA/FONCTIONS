@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 int getSize(){
  int a;
@@ -28,8 +29,54 @@ void initArray(int tab[],int size){
         tab[i] = getRandomInt(start,end);
     }
 }
-void afficher(int arr[],int size){
+void afficher(int array[],int size){
     for(int i=0;i<size;i++){
-        printf("tableau[%d] = %d:\n",i,arr[i]);
+        printf("tableau[%d] = %d:\n",i,array[i]);
     }
+}
+
+//supprimer les doublons d'un tableau
+bool checkInArray(int array[],int size,int n){
+    for(int i=0;i<size;i++){
+        if(n == array[i]){
+            return true;
+        }
+    }
+    return false;
+}
+
+void deleteDoubles(int array[],int *size,int newArray[]){
+    int index=0;
+    for (int i = 0; i < *size; i++)
+    {
+        if(checkInArray(newArray,*size,array[i]) == false){
+            printf(" %d  %d \n",array[i],index);
+            newArray[index] = array[i];
+            index++;
+        }
+    }
+    *size = index ;
+}
+
+
+
+//element le plus grand
+int max(int ar[],int size){
+    int max = ar[0];
+    for(int i=0;i<size;i++){
+        if(ar[i] > max){
+            max = ar[i];
+        }
+    }
+    return max;
+}
+//element le plus min
+int min(int ar[],int size){
+    int min;
+    for(int i=0;i<size;i++){
+        if(ar[i] < min){
+            min = ar[i];
+        }
+    }
+    return min;
 }
